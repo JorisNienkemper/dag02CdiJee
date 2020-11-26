@@ -9,8 +9,6 @@ public class Werker1 {
     private ConsolePrinter consolePrinter;
 
     public void doTask() {
-        consolePrinter.print("Start met task");
-        consolePrinter.print("Hard aan het werk ...");
-        consolePrinter.print("Task afgerond");
+        consolePrinter.print("CP Wie ben ik: " + consolePrinter.toString());
     }
 }

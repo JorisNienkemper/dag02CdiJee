@@ -7,7 +7,7 @@ public class Werker2 {
 //    private ConsolePrinter consolePrinter = new ConsolePrinter();
 //    @Inject
 //    @File
-    private Printer consolePrinter;
+    private Printer printer;
 
     public Werker2() {
         System.out.println("De default constructor Werker2() is gebruikt");
@@ -15,21 +15,19 @@ public class Werker2 {
     }
 
     @Inject
-    public Werker2(@File Printer consolePrinter) {
+    public Werker2(@File Printer printer) {
         System.out.println("De constructor Werker2(ConsolePrinter consolePrinter) is gebruikt");
-        this.consolePrinter = consolePrinter;
+        this.printer = printer;
     }
 
     public void doTask() {
-        consolePrinter.print("Start met task");
-        consolePrinter.print("Hard aan het werk ...");
-        consolePrinter.print("Task afgerond");
+        printer.print("FP Wi ben ik: " + printer.toString());
     }
 
 
-    public void setConsolePrinter(ConsolePrinter consolePrinter) {
+    public void setPrinter(ConsolePrinter printer) {
         System.out.println("De default setConsolePrinter(ConsolePrinter consolePrinter) is gebruikt");
 
-        this.consolePrinter = consolePrinter;
+        this.printer = printer;
     }
 }

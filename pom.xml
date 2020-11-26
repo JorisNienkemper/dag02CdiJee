@@ -7,6 +7,7 @@
     <groupId>org.example.jorisn</groupId>
     <artifactId>JeeCDI</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>org.jboss.weld.se</groupId>

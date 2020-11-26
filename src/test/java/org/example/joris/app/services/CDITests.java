@@ -30,7 +30,7 @@ public class CDITests {
     void worker2DoSomeWorkAndGetDependencyViaMethodParameter() {
         ConsolePrinter consolePrinter = new ConsolePrinter();
         Werker2 werker = new Werker2();
-        werker.setConsolePrinter(consolePrinter);
+        werker.setPrinter(consolePrinter);
         werker.doTask();
     }
 
@@ -70,5 +70,35 @@ public class CDITests {
         Werker2 werker2 = handle.get();
         werker2.doTask();
         cdiContainer.shutdown();
+    }
+    @Test
+    void hoeveelPrintersHebIkNu() {
+        Weld weld = new Weld();
+        WeldContainer cdiContainer = weld.initialize();
+        Werker1 werker1a = cdiContainer.select(Werker1.class).get();
+        Werker1 werker1b = cdiContainer.select(Werker1.class).get();
+        Werker1 werker1c = cdiContainer.select(Werker1.class).get();
+        Werker2 werker21 = cdiContainer.select(Werker2.class).get();
+        Werker2 werker22 = cdiContainer.select(Werker2.class).get();
+        Werker2 werker23 = cdiContainer.select(Werker2.class).get();
+
+        werker1a.doTask();
+        werker1b.doTask();
+        werker1c.doTask();
+
+        werker21.doTask();
+        werker22.doTask();
+        werker23.doTask();
+
+
+        cdiContainer.shutdown();
+    }
+
+    @Test
+    void printNamen() {
+        Weld weld = new Weld();
+        WeldContainer cdiContainer = weld.initialize();
+        NaamConsumer naamConsumer = cdiContainer.select(NaamConsumer.class).get();
+        naamConsumer.showNamen();
     }
 }
