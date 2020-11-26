@@ -5,16 +5,17 @@ import javax.inject.Inject;
 public class Werker2 {
     // Console printer is hier een dependency
 //    private ConsolePrinter consolePrinter = new ConsolePrinter();
-    @Inject
-    private ConsolePrinter consolePrinter;
+//    @Inject
+//    @File
+    private Printer consolePrinter;
 
     public Werker2() {
         System.out.println("De default constructor Werker2() is gebruikt");
 
     }
 
-
-    public Werker2(ConsolePrinter consolePrinter) {
+    @Inject
+    public Werker2(@File Printer consolePrinter) {
         System.out.println("De constructor Werker2(ConsolePrinter consolePrinter) is gebruikt");
         this.consolePrinter = consolePrinter;
     }

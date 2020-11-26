@@ -61,4 +61,14 @@ public class CDITests {
         Werker2 werker2 = handle.get();
         werker2.doTask();
     }
+
+    @Test
+    void vraagWerker2OpBijDeContainerMetHetInterfacePrinter() {
+        Weld weld = new Weld();
+        WeldContainer cdiContainer = weld.initialize();
+        WeldInstance<Werker2> handle = cdiContainer.select(Werker2.class);
+        Werker2 werker2 = handle.get();
+        werker2.doTask();
+        cdiContainer.shutdown();
+    }
 }
